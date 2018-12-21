@@ -1,0 +1,25 @@
+sensor.hydroquebec_balance:
+  friendly_name: Balance
+
+sensor.hydroquebec_period_mean_daily_bill:
+  friendly_name: Moyenne journalière
+  icon: mdi:speedometer
+
+sensor.hydroquebec_period_total_bill:
+  friendly_name: Total en date d'aujourd'hui
+
+sensor.hydroquebec_yesterday_average_temperature:
+  friendly_name: Température moyenne hier
+sensor.hydroquebec_yesterday_higher_price_consumption:
+  friendly_name: Consommation prix plus élevé hier
+sensor.hydroquebec_yesterday_lower_price_consumption:
+  friendly_name: Consommation au prix bas hier
+sensor.hydroquebec_yesterday_total_consumption:
+  friendly_name: Total de la consommation hier
+
+sensor.hydroquebec_period_length:
+  hidden: True
+
+sensor.hydroquebec_period_total_days:
+  hidden: True
+

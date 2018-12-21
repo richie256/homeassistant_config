@@ -1,0 +1,104 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude_home
+  longitude: !secret longitude_home
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret elevation_home
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Montreal
+  # Customization file
+  customize: !include customize.yaml
+
+# Example configuration.yaml entry
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api_key
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Ecobee Thermostat
+ecobee:
+  api_key: !secret ecobee_api_key
+
+camera:
+- platform: ffmpeg
+  name: Abri Tempo
+  input: !secret abri_tempo_input
+
+# Wemo automatic discovery disabled, and 1 statically configured device
+wemo:
+  discovery: false
+  static:
+    - !secret wemo_ipaddress
+
+# Sensors
+sensor: !include_dir_merge_list includes/sensors/
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+script: !include scripts.yaml
+
+# Example configuration.yaml entry
+asuswrt:
+  host: !secret asuswrt_host
+  username: !secret asuswrt_username
+  password: !secret asuswrt_password
+
+device_tracker:
+  - platform: asuswrt
+    host: !secret asuswrt_host
+    username: !secret asuswrt_username
+    password: !secret asuswrt_password
+    consider_home: 180
+    track_new_devices: yes
+
+## Includes
+input_boolean: !include includes/input_boolean.yaml
+input_select: !include includes/input_select.yaml
+automation: !include_dir_merge_list yaml_automation/
+zone: !include zones.yaml
+group: !include includes/group/group.hydroquebec.yaml

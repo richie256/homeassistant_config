@@ -1,0 +1,7 @@
+- platform: template
+  sensors:
+    hydroquebecjour:
+      value_template: "{{ states('sensor.hydroquebec_period_length') }}/{{ states('sensor.hydroquebec_period_total_days') }}"
+      friendly_name: 'Jour restant'
+      unit_of_measurement: 'Jour'
+      icon_template: mdi:av-timer

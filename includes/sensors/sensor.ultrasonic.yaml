@@ -1,0 +1,6 @@
+  # Sump Pump Ultrasonic sensor
+  - platform: ultrasonic
+    depth: 75
+    trigger_pin: 18
+    echo_pin: 24
+    compensation: 0

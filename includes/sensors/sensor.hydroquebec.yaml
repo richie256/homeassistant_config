@@ -1,0 +1,20 @@
+  # HYDRO-QUEBEC
+  - platform: hydroquebec
+    username: !secret hydroqc_username
+    password: !secret hydroqc_password
+    contract: !secret hydroqc_contract
+    monitored_variables:
+     - balance
+     - period_total_bill
+     - period_length
+     - period_total_days
+     - period_mean_daily_bill
+     # - period_mean_daily_consumption
+     # - period_total_consumption
+     # - period_lower_price_consumption
+     # - period_higher_price_consumption
+     # - period_average_temperature
+     - yesterday_total_consumption
+     - yesterday_lower_price_consumption
+     - yesterday_higher_price_consumption
+     - yesterday_average_temperature

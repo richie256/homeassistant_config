@@ -1,0 +1,33 @@
+## input_select.yaml
+
+min_status:
+  name: Statut de Min
+  options:
+   - "À la maison"
+   - "Absente"
+  initial: "À la maison"
+
+## input_select.yaml
+
+rich_status:
+  name: Statut de Richard
+  options:
+   - "Au travail"
+   - "Au lit"
+   - "À la maison"
+   - "Absent"
+  initial: "À la maison"
+
+bopere_status:
+  name: Statut du BoPère
+  options:
+   - "À la maison"
+   - "Absent"
+  initial: "À la maison"
+
+bellemere_status:
+  name: Statut de la BelleMère
+  options:
+   - "À la maison"
+   - "Absente"
+  initial: "À la maison"

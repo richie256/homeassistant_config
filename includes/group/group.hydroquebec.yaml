@@ -1,0 +1,14 @@
+HydroQuebec:
+  name: Hydro Québec
+  icon: mdi:power-socket-us
+  entities:
+    - sensor.hydroquebec_balance
+    - sensor.hydroquebecjour
+    - sensor.hydroquebec_period_mean_daily_bill 
+    - sensor.hydroquebec_period_total_bill
+    - sensor.hydroquebec_period_total_days
+    - sensor.hydroquebec_period_length
+    - sensor.hydroquebec_yesterday_average_temperature
+    - sensor.hydroquebec_yesterday_higher_price_consumption
+    - sensor.hydroquebec_yesterday_lower_price_consumption
+    - sensor.hydroquebec_yesterday_total_consumption

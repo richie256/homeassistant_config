@@ -1,0 +1,9 @@
+## input_boolean
+
+alarm_clock_status:
+  initial: on
+
+vacation_mode:
+  name: "On Vacation"
+  initial: off
+  icon: mdi:airplane

@@ -1,0 +1,26 @@
+# Zoning information
+
+- name: Home
+  latitude: !secret latitude_home
+  longitude: !secret longitude_home
+  radius: 100
+  icon: mdi:home
+
+- name: !secret rich_work_name
+  latitude: !secret rich_latitude_work
+  longitude: !secret rich_longitude_work
+  radius: 150
+  icon: mdi:briefcase
+
+- name: Gym
+  latitude: !secret rich_latitude_gym
+  longitude: !secret rich_longitude_gym
+  radius: 100
+  icon: mdi:weight
+
+- name: !secret min_work_name
+  latitude: !secret min_latitude_work
+  longitude: !secret min_longitude_work
+  radius: 250
+  icon: mdi:rocket
+
