@@ -1,0 +1,82 @@
+## Automations for rich's status
+
+# Home status
+- alias: "stat-rich_Home status from device tracker"
+  trigger:
+    - platform: state
+      entity_id: device_tracker.iphonederichard
+      from: 'not_home'
+      to: "home"
+      for:
+        minutes: 3
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.rich_status
+        option: "À la maison"
+
+# Away status
+- alias: "stat-rich_Away status from device tracker"
+  trigger:
+    - platform: state
+      entity_id: device_tracker.iphonederichard
+      from: 'home'
+      to: "not_home"
+      for:
+        minutes: 10
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.rich_status
+        option: "Absent"
+
+# Computer status
+- alias: "stat-ron_Computer status from monitor status"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.humvee_monitor_status
+      from: "off"
+      to: "on"
+      for:
+        minutes: 3
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.ron_status
+        option: "Using Computer"
+
+# TV Status
+- alias: "stat-ron_TV status from chromecast"
+  trigger:
+    - platform: template
+      value_template:  >-
+        {%- if states.media_player.living_room.attributes.app_name == "YouTube" -%}
+          true
+        {%- elif states.media_player.living_room.attributes.app_name == "Plex" -%}
+          true
+        {%- endif -%}
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.ron_status
+        option: "Watching TV"
+
+# Home status from monitor status
+- alias: "stat-ron_Home status from monitor status"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.humvee_monitor_status
+      from: "on"
+      to: "off"
+      # for:
+        # minutes: 3
+  condition:
+    - condition: state
+      entity_id: device_tracker.ron_phone
+      state: "home"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.ron_status
+        option: "At Home"
+

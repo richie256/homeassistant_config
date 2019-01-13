@@ -1,0 +1,31 @@
+## Automations for min's status
+
+# Home status
+- alias: "stat-min_Home status from device tracker"
+  trigger:
+    - platform: state
+      entity_id: device_tracker.iphonedeminmin
+      from: 'not_home'
+      to: "home"
+      for:
+        minutes: 3
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.min_status
+        option: "À la maison"
+
+# Away status
+- alias: "stat-min_Away status from device tracker"
+  trigger:
+    - platform: state
+      entity_id: device_tracker.iphonedeminmin
+      from: 'home'
+      to: "not_home"
+      for:
+        minutes: 10
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.min_status
+        option: "Absente"

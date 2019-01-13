@@ -1,0 +1,45 @@
+## Automations for bellemere's status
+
+# Home status
+- alias: "stat-bellemere_Home status from device tracker"
+  trigger:
+    - platform: state
+      entity_id: device_tracker.xiaomibellemere
+      from: 'not_home'
+      to: "home"
+      for:
+        minutes: 3
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.bellemere_status
+        option: "À la maison"
+
+# Away status
+- alias: "stat-bellemere_Away status from device tracker"
+  trigger:
+    - platform: state
+      entity_id: device_tracker.xiaomibellemere
+      from: 'home'
+      to: "not_home"
+      for:
+        minutes: 10
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.bellemere_status
+        option: "Absente"
+
+- alias: bellemere_system_start
+  trigger:
+    - platform: homeassistant
+      event: start
+  condition:
+    - condition: state
+      entity_id: device_tracker.xiaomibellemere
+      state: 'not_home'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.bellemere_status
+        option: "Absente"

@@ -1,0 +1,31 @@
+## Automations for bopère's status
+
+# Home status
+- alias: "stat-bopere_Home status from device tracker"
+  trigger:
+    - platform: state
+      entity_id:  device_tracker.iphonebopere
+      from: 'not_home'
+      to: "home"
+      for:
+        minutes: 3
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.bopere_status
+        option: "À la maison"
+
+# Away status
+- alias: "stat-bopere_Away status from device tracker"
+  trigger:
+    - platform: state
+      entity_id:  device_tracker.iphonebopere
+      from: 'home'
+      to: "not_home"
+      for:
+        minutes: 10
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.bopere_status
+        option: "Absent"
