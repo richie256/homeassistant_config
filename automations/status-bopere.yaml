@@ -29,3 +29,18 @@
       data:
         entity_id: input_select.bopere_status
         option: "Absent"
+
+# Startup Status
+- alias: bopere_system_start
+  trigger:
+    - platform: homeassistant
+      event: start
+  condition:
+    - condition: state
+      entity_id: device_tracker.iphonebopere
+      state: 'not_home'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.bopere_status
+        option: "Absent"

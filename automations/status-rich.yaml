@@ -80,3 +80,19 @@
         entity_id: input_select.ron_status
         option: "At Home"
 
+# Startup Status
+- alias: rich_system_start
+  trigger:
+    - platform: homeassistant
+      event: start
+  condition:
+    - condition: state
+      entity_id: device_tracker.iphonederichard
+      state: 'not_home'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.rich_status
+        option: "Absent"
+
+

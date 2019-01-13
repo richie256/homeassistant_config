@@ -30,6 +30,7 @@
         entity_id: input_select.bellemere_status
         option: "Absente"
 
+# Startup Status
 - alias: bellemere_system_start
   trigger:
     - platform: homeassistant
