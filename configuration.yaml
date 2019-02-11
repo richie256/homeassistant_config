@@ -80,8 +80,6 @@ tts:
 # Cloud
 cloud:
 
-script: !include scripts.yaml
-
 # Example configuration.yaml entry
 asuswrt:
   host: !secret asuswrt_host

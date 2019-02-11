@@ -1,1 +1,21 @@
+
+# Secret files!! #
+##################
 secret.yaml
+plex.conf
+
+# Home Assistant generated files #
+##################################
+.HA_VERSION
+.uuid
+.storage/
+tts/
+
+# Logs and databases #
+######################
+home-assistant.log
+home-assistant*.db
+
+# List of known devices #
+#########################
+known_devices.yaml
