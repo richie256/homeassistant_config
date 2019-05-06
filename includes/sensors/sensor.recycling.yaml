@@ -1,0 +1,26 @@
+- platform: template
+  sensors:
+    recycling_bin_tomorrow:
+      entity_id: []
+      friendly_name: "Recycling Bin Tomorrow"
+      value_template: "{{ ((as_timestamp(now()) - as_timestamp('2019-01-21 00:00:00'))) / 86400 |int % 14 < 1 }}"
+      entity_picture_template: >-
+        {{ '/local/icons/recyclinggreenbin/recycling_bin_tomorrow.png'}}
+    recycling_bin_today:
+      entity_id: []
+      friendly_name: "Recycling Bin Today"
+      value_template: "{{ ((as_timestamp(now()) - as_timestamp('2019-01-22 00:00:00'))) / 86400 |int % 14 < 1 }}"
+      entity_picture_template: >-
+        {{ '/local/icons/recyclinggreenbin/recycling_bin_today.png'}}
+    green_bin_tomorrow:
+      entity_id: []
+      friendly_name: "Green Bin Tomorrow"
+      value_template: "{{ ((as_timestamp(now()) - as_timestamp('2019-01-28 00:00:00'))) / 86400 |int % 14 < 1 }}"
+      entity_picture_template: >-
+        {{ '/local/icons/recyclinggreenbin/green_waste_bin_tomorrow.png'}}
+    green_bin_today:
+      entity_id: []
+      friendly_name: "Green Bin Today"
+      value_template: "{{ ((as_timestamp(now()) - as_timestamp('2019-01-29 00:00:00'))) / 86400 |int % 14 < 1 }}"
+      entity_picture_template: >-
+        {{ '/local/icons/recyclinggreenbin/green_waste_bin_today.png'}}
